@@ -130,3 +130,23 @@ const game = scoreboard(getInningScore,inning, Math.random() * Math.floor(7));
 for (let i = 0; i < game.length; i++) {
   console.log(game[i]);
 }
+
+
+
+//Preparation
+
+function personalDice(name){
+  return function(){
+      // generate random number between 1 and 6
+    const newRoll = Math.floor(Math.random() * 6);
+    console.log(`${name} rolled a ${newRoll}`)
+  }
+}
+
+const dansRoll = personalDice("Dan");
+
+const zoesRoll = personalDice("Zoe");
+
+
+dansRoll();
+dansRoll();
