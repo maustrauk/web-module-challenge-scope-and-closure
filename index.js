@@ -107,9 +107,22 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore (callback) {
+  const inningScore = {homeTeam : callback(), awayTeam : callback()}
+  return inningScore;
 }
 
+function scoreboard(callback_1, callback_2, numberOfInnings) {
+  const userStringArray = [];
+  let finalScore = {homeTeam : 0, awayTeam : 0};
+  for(let i = 0; i < numberOfInnings; i++) {
+    const inningScore = callback_1(callback_2);
+    finalScore.homeTeam = finalScore.homeTeam + inningScore.homeTeam;
+    finalScore.awayTeam = finalScore.awayTeam + inningScore.awayTeam;
+    userStringArray.push(`${i+1}th inning: ${inningScore.awayTeam} - ${inningScore.homeTeam} `);
+  }
+  userStringArray.push(`Final Score: ${finalScore.awayTeam} - ${finalScore.homeTeam}`);
+  return userStringArray;
+}
 
+console.log(scoreboard(getInningScore,inning, Math.random() * Math.floor(7)));
