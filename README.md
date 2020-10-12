@@ -120,6 +120,38 @@ addSix(21); // returns 27
 
 3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
 
+Answer:
+
+Functional programming (FP):
+* Definition: focus on function evaluation;
+* Data: uses immutable data;
+* Model: follows a declarative programming model;
+* Support: supports parallel programming;
+* Execution: statements can be excluded in any order;
+* Iteration: uses recursion;
+* Basic element: functions & variables;
+
+Object oriented programming (OOP):
+* Definition: focus on the concept of objects;
+* Data: uses the mutable data;
+* Model: follows an imperative programming model;
+* Support: doesn’t support parallel programming;
+* Execution: statements should be excluded in particular order;
+* Iteration: uses loops;
+* Basic element: objects & methods;
+
+FP pros and cons:
++ Using clean and transparent functions leads to reliable results without side effects that deliver and return exactly what you expect.
++ It uses a more declarative style that focuses more on what needs to be done and less on how to do it, with an emphasis on efficiency and optimisation.
+- It is a relatively new paradigm and sometimes it is not so easy to find documentation or information compared to Object-oriented Programming.
+- Sometimes it may not become illegible due to a very large number of functions compared to Object-oriented Programming.
+
+OOP pros and cons:
++ Objects and methods are very clear and understandable.
++ Use an imperative style, in which the code is read like a simple set of instructions, just like a computer would read it.
+- May lead to unspecified and unexpected results in the sense that a parallel code that would have access to a common resource could do so in a way that produces unspecified results.
+- Its methods can have side effects and may put an impact on processors.
+
 ## Resources
 
 📚 [Scope and Closures Guide](https://css-tricks.com/javascript-scope-closures/)
