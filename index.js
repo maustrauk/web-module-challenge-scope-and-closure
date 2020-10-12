@@ -125,4 +125,8 @@ function scoreboard(callback_1, callback_2, numberOfInnings) {
   return userStringArray;
 }
 
-console.log(scoreboard(getInningScore,inning, Math.random() * Math.floor(7)));
+const game = scoreboard(getInningScore,inning, Math.random() * Math.floor(7));
+
+for (let i = 0; i < game.length; i++) {
+  console.log(game[i]);
+}
