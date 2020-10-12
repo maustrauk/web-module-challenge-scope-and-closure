@@ -29,10 +29,15 @@ console.log(processFirstItem(['foo', 'bar'],(str) => str + str));
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * In counter1 variable "count" is in the scope of function  and in counter2 it is a global variable.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 using closures by definition.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter2 is preferable in small projects and counter1 vice versa
 */
 
 // counter1 code
@@ -44,6 +49,7 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
+
 
 // counter2 code
 let count = 0;
@@ -61,7 +67,7 @@ function inning(){
   return Math.floor(Math.random() * Math.floor(3));
 }
 
-console.log(inning());
+console.log("ining=",inning());
 
 /* Task 3: finalScore()
 
@@ -85,7 +91,7 @@ function finalScore(callback, numberOfInnings){
   }
   return gameScore;
 }
-console.log(finalScore(inning,9));
+console.log("Finale Score=",finalScore(inning,9));
 
 /* Task 4: 
 
