@@ -18,6 +18,7 @@ function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
 
+console.log(processFirstItem(['foo', 'bar'],(str) => str + str));
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -28,10 +29,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * In counter1 variable "count" is in the scope of function  and in counter2 it is a global variable.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 using closures by definition.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter2 is preferable in small projects and counter1 vice versa
 */
 
 // counter1 code
@@ -43,6 +49,7 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
+
 
 // counter2 code
 let count = 0;
@@ -56,11 +63,11 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.floor(Math.random() * Math.floor(3));
 }
+
+console.log("ining=",inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +83,15 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, numberOfInnings){
+  let gameScore = {Home: 0, Away: 0};
+  for (let i = 0; i < numberOfInnings-1; i++) {
+    gameScore.Home = gameScore.Home + callback();
+    gameScore.Away = gameScore.Away + callback();
+  }
+  return gameScore;
 }
+console.log("Finale Score=",finalScore(inning,9));
 
 /* Task 4: 
 
@@ -102,9 +113,46 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+function getInningScore (callback) {
+  const inningScore = {homeTeam : callback(), awayTeam : callback()}
+  return inningScore;
+}
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callback_1, callback_2, numberOfInnings) {
+  const userStringArray = [];
+  let finalScore = {homeTeam : 0, awayTeam : 0};
+  for(let i = 0; i < numberOfInnings; i++) {
+    const inningScore = callback_1(callback_2);
+    finalScore.homeTeam = finalScore.homeTeam + inningScore.homeTeam;
+    finalScore.awayTeam = finalScore.awayTeam + inningScore.awayTeam;
+    userStringArray.push(`${i+1}th inning: ${inningScore.awayTeam} - ${inningScore.homeTeam} `);
+  }
+  userStringArray.push(`Final Score: ${finalScore.awayTeam} - ${finalScore.homeTeam}`);
+  return userStringArray;
+}
+
+const game = scoreboard(getInningScore,inning, Math.random() * Math.floor(7));
+
+for (let i = 0; i < game.length; i++) {
+  console.log(game[i]);
 }
 
 
+
+//Preparation
+
+function personalDice(name){
+  return function(){
+      // generate random number between 1 and 6
+    const newRoll = Math.floor(Math.random() * 6);
+    console.log(`${name} rolled a ${newRoll}`)
+  }
+}
+
+const dansRoll = personalDice("Dan");
+
+const zoesRoll = personalDice("Zoe");
+
+
+dansRoll();
+dansRoll();

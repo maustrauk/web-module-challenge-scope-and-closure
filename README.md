@@ -42,6 +42,11 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Answer:
+
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,14 +68,31 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Answer:
+
+A closure is the combination of a function and the lexical environment within which that function was declared.
+So dansRoll and zoesRoll variables are functions and they are preserves their scope. dansRoll is a closure.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Answer:
+
+"name" is the same and "newRoll" is a random number each time.
+
 c. What is the lexical scope of `newRoll`? 
+
+Answer:
+
+"Math.floor(Math.random() * 6);"
 
 ### Task 2c - Exit Ticket
 
 Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/WjSzNh9gDrD8Xn8hw/enY3yPRP3nEm7E).
 
 The completion of these questions is mandatory for MVP. However, passing the quiz doesn't affect your standing as a Lambda School student whatsoever. This is Lambda School testing itself! Please answer honestly and to the best of your ability without using external references.
+
+Done!
 
 ### Task 3 - Stretch Goals
 
@@ -97,6 +119,38 @@ addSix(21); // returns 27
 ```
 
 3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
+Answer:
+
+Functional programming (FP):
+* Definition: focus on function evaluation;
+* Data: uses immutable data;
+* Model: follows a declarative programming model;
+* Support: supports parallel programming;
+* Execution: statements can be excluded in any order;
+* Iteration: uses recursion;
+* Basic element: functions & variables;
+
+Object oriented programming (OOP):
+* Definition: focus on the concept of objects;
+* Data: uses the mutable data;
+* Model: follows an imperative programming model;
+* Support: doesn’t support parallel programming;
+* Execution: statements should be excluded in particular order;
+* Iteration: uses loops;
+* Basic element: objects & methods;
+
+FP pros and cons:
++ Using clean and transparent functions leads to reliable results without side effects that deliver and return exactly what you expect.
++ It uses a more declarative style that focuses more on what needs to be done and less on how to do it, with an emphasis on efficiency and optimisation.
+- It is a relatively new paradigm and sometimes it is not so easy to find documentation or information compared to Object-oriented Programming.
+- Sometimes it may not become illegible due to a very large number of functions compared to Object-oriented Programming.
+
+OOP pros and cons:
++ Objects and methods are very clear and understandable.
++ Use an imperative style, in which the code is read like a simple set of instructions, just like a computer would read it.
+- May lead to unspecified and unexpected results in the sense that a parallel code that would have access to a common resource could do so in a way that produces unspecified results.
+- Its methods can have side effects and may put an impact on processors.
 
 ## Resources
 
